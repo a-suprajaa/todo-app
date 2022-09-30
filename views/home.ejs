@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo App</title>
+</head>
+<body>
+    <div><h1 style="color:purple;text-align:center;font-family:helvetica;margin-top:30px;">TODO APP</h1></div>
+    <div style="display:flex;justify-content:center">
+        <div style="height:80px;border:3px solid purple;width:500px;background-color:rgb(238, 209, 244);border-radius:25px;justify-content:center;display:flex;padding-top:40px">
+            <form method="post" action="/addtodo">
+                <input type="text" style="height:30px;border:2px solid purple;border-radius:10px;width:250px;font:20px black"name="todoentry" placeholder="enter a todo">
+                <input type="submit" style="height:30px;background-color:purple;position:relative;display:inline-block;color:white;border-radius:10px;text-align:center;padding-top:10px;" value = "Add Todo">
+            </form>
+        </div>
+    </div>
+    <br>
+    <h3 style="text-align:center;color:gainsboro">Click on the Todo to delete</h3>
+    <div style="display:flex;justify-content:center">
+        
+        <br>
+        <ul>
+          <%  todoname.forEach(todos => { %>
+                <a href="/delete/todo/<%= todos._id %>"><li style="list-style-type:none"><div style="height:40px;background-color:purple;position:relative;display:inline-block;color:white;border-radius:10px;min-width:200px;text-align:center;padding-top:10px;font-size:25px"><%= todos.todoname %> </div></li></a><br>
+           <%    }) %>
+        </ul>
+    </div>
+</body>
+</html>
